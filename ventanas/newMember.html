@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>EBand</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    
+    <form>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="inputName">Nombre</label>
+                <input type="text" class="form-control" id="inputName" placeholder="Ingresar nombre">
+            </div>
+            <div class="form-group col-md-6">
+                <label for="inputLastName">Apellidos</label>
+                <input type="text" class="form-control" id="inputLastName" placeholder="Ingresar apellidos">
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col-md-5">
+                <label for="inputNumId">Documento de identidad</label>
+                <input type="text" class="form-control" id="inputNumId" placeholder="Ingresar numero del documento">
+            </div>
+            <div class="form-group col-md-5">
+                <label for="inputLastName">Ciudad de expedicion</label>
+                <input type="text" class="form-control" id="inputLastName" placeholder="Ej: Medellin">
+            </div>
+            <div class="form-group col-md-2">
+                <label for="inputTypeId">Tipo</label>
+                <select id="inputTypeId" class="form-control">
+                    <option selected>C.C.</option>
+                    <option>T.I.</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="inputEps">EPS</label>
+            <input type="text" class="form-control" id="inputEps" placeholder="Ingresar EPS">
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col-md-8">
+                <label for="inputTypeSquadron">Escuadron</label>
+                <select id="inputTypeSquadron" class="form-control">
+                    <option selected>Colors</option>
+                    <option>Vientos</option>
+                    <option>Maderas</option>
+                    <option>Liras</option>
+                    <option>Percusion latina</option>
+                    <option>SnareLine</option>
+                    <option>BassLine</option>
+
+                </select>
+            </div>
+            <div class="form-group col-md-2">
+                <label for="inputTypeExperience">Experiencia</label>
+                <select id="inputTypeExperience" class="form-control">
+                    <option selected>Si</option>
+                    <option>No</option>
+                </select>
+            </div>
+        </div>
+
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="../vendor/jquery/jquery.min.js"></script>
+    <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
