@@ -12,7 +12,7 @@ body {
 hr {
   max-width: 50px;
   border-width: 3px;
-  border-color: $primary;
+  border-color: $secondary;
 }
 
 hr.light {
@@ -37,7 +37,7 @@ h6 {
 }
 
 .bg-primary {
-  background-color: $primary !important;
+  background-color: $secondary !important;
 }
 
 .bg-dark {
