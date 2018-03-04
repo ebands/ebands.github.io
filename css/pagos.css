@@ -20,6 +20,13 @@ body{
 
 .jumbotron{
   background-color: lightsteelblue;
-  margin-top: 10%;
+  margin-top: 5%;
 }
 
+ a:hover {
+   color: rgb(255, 255, 255); 
+   text-decoration: none; 
+}
+a {
+  color:white;
+}
