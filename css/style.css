@@ -4,3 +4,8 @@
 .card-login {
      max-width: 25rem; 
 }
+/* Estilo background oscuro claro para el texto de la imagen principal  */
+.principalText{
+    background-color: rgba(0,0,0,0.8); 
+    border-radius: 30px;
+  }
