@@ -38,7 +38,7 @@
               <button type="button" class="btn btn-primary btn-lg btn-block">Pago mensualidad</button> 
               <button type="button" class="btn btn-primary btn-lg btn-block">Pago uniformes</button> 
             </div>            
-            <button type="button" id="btnAdd" class="btn btn-primary btn-circle btn-lg" data-toggle="modal" data-target="#exampleModal"></button>            
+            <button type="button" id="btnAdd" class="btn btn-primary btn-circle btn-lg" onclick="pop()"></button>            
         </div>         
     </div>
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -57,15 +57,9 @@
                         <div class="col-sm-10">
                             <input type="email" class="form-control" id="inputEmail3" placeholder="Nombre">
                         </div>
-                    </div>
-                    <form method="post">
-                      <div class="form-group">
-                        <label class="control-label" for="date">Rango de fecha</label>
-                        <input class="form-control" id="date" name="date" readonly="readonly" placeholder="MM/DD/YYY" type="text"/>
-                        </div>
-                    </form>
-                </form>
-            </div>
+                
+                                  </form>
+                 </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Aceptar</button>           
             </div>
@@ -73,6 +67,21 @@
       </div>
     
       </div>
+    </div>
+
+    <div id="pop-up-info" style="display:none" >
+      <a class="b-close">×</a>
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Nuevo tipo de pago</h5>    
+      </div>
+      <form method="post" class="dataPicker">
+        <div class="form-group">
+          <label class="control-label" for="date">Rango de fecha</label>
+          <input class="form-control" id="date" name="date" readonly="readonly" placeholder="MM/DD/YYY" type="text"/>
+          </div>
+      </form>
+  </form>
+
     </div>
    
     <!-- /.content-wrapper-->
@@ -91,10 +100,15 @@
     
     <!-- Bootstrap core JavaScript -->
     <script src="../vendor/jquery/jquery.min.js"></script>
+    <script src="../js/bpopup.js"></script>
     <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>    
       <script type="text/javascript" src="../js/bootstrap-datepicker.js"></script>
+
     <script src="../js/util.js"></script>
     <script src="../js/pagos.js"></script>
+  <script>
     
+    
+  </script>
 </body>
 </html>
