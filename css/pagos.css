@@ -30,3 +30,6 @@ body{
 a {
   color:white;
 }
+date {
+  z-index: 300;
+}
