@@ -13,11 +13,11 @@ $(document).ready(function(){
      date.datepicker("hide");
     });
   
-<<<<<<< HEAD
+
 });
-=======
+
  
-});
+
  
  
 
@@ -26,4 +26,4 @@ $(document).ready(function(){
 
  
 
->>>>>>> 8ea83d501b0c4adfcd1b30b51910289646ee251f
+
