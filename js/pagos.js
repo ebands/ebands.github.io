@@ -5,16 +5,25 @@ $(document).ready(function(){
         pop.bPopup({
             zIndex: 4,
           modalClose: false,
-          position: [750, 150]
+          position: [300, 150]
         });
     });
     $(".b-close").click(function(){
-        console.log("SDF")
-     date.datepicker("hide");
+        
+        date.datepicker("hide");
+    });
+
+    $("#btnAceptar").click(function(){
+        pop.close();
+        date.datepicker("hide");
     });
   
- 
+
 });
+
+
+ 
+
  
  
 
@@ -22,4 +31,5 @@ $(document).ready(function(){
    
 
  
+
 
