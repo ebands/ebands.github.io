@@ -16,8 +16,8 @@ $(function(){
                   success:  function (response) {
                           alert(response);
                   },
-                  error: function(){
-                    alert("JMM");
+                  error: function(response){
+                    alert(response);
                   }
           });
     });
