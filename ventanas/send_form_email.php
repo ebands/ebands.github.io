@@ -17,7 +17,7 @@ echo $resultado;
 $name = strip_tags(htmlspecialchars($_POST['name']));
 $email_address = strip_tags(htmlspecialchars($_POST['email']));
 $phone = strip_tags(htmlspecialchars($_POST['phone']));
-$message = strip_tags(htmlspecialchars($_POST['message']));	*/
+$message = strip_tags(htmlspecialchars($_POST['message']));	
 $name = "NAME";
 $email_address = "EMAIL-ADDRESS";
 $phone = "PHONE";
