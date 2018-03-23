@@ -1,6 +1,8 @@
 <?php
-$message = "wrong answer";
-echo "<script type='text/javascript'>alert('$message');</script>";
+/*$userInput = $_POST["userInput"];
+echo $userInput;*/
+$resultado = $_POST['valorCaja1'] + $_POST['valorCaja2']; 
+echo $resultado;
 // Check for empty fields
 /*if(empty($_POST['name'])  		||
    empty($_POST['email']) 		||
@@ -11,11 +13,11 @@ echo "<script type='text/javascript'>alert('$message');</script>";
 	echo "No arguments Provided!";
 	return false;
    }
-	
+
 $name = strip_tags(htmlspecialchars($_POST['name']));
 $email_address = strip_tags(htmlspecialchars($_POST['email']));
 $phone = strip_tags(htmlspecialchars($_POST['phone']));
-$message = strip_tags(htmlspecialchars($_POST['message']));*/
+$message = strip_tags(htmlspecialchars($_POST['message']));	*/
 $name = "NAME";
 $email_address = "EMAIL-ADDRESS";
 $phone = "PHONE";
@@ -30,5 +32,5 @@ $headers .= "Reply-To: $email_address";
      mail($to,$email_subject,$email_body,$headers)
 
 
-//return true;			
+//return true;			*/
 ?>
