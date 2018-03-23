@@ -1,5 +1,6 @@
 <?php
-
+$message = "wrong answer";
+echo "<script type='text/javascript'>alert('$message');</script>";
 // Check for empty fields
 /*if(empty($_POST['name'])  		||
    empty($_POST['email']) 		||
