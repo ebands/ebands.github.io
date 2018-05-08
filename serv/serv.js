@@ -72,8 +72,8 @@ try{
     }
 }
 
-// Si no recibe un numero de puerto por parametro en la linea de comando, usa el 8080
-var port = process.argv[2] || 8080 ;
+// Si no recibe un numero de puerto por parametro en la linea de comando, usa el 8081
+var port = process.argv[2] || 8081 ;
 
 // Ejecuta el servidor
 server.listen( port );
