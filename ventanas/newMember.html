@@ -14,6 +14,7 @@
   <link href="../vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
   <!-- Custom styles for this template-->
   <link href="../css/sb-admin.css" rel="stylesheet">
+  <link href="../css/datepicker.css" rel="stylesheet">
     
 </head>
 <body  class="fixed-nav sticky-footer bg-dark" id="page-top">
@@ -22,76 +23,331 @@
 
 	<!--contenido -->
     <div class="content-wrapper">
-        <div class="container-fluid">
-                <form>
-                    <div class="form-row">
-                        <div class="form-group col-md-6">
-                            <label for="inputName">Nombre</label>
-                            <input type="text" class="form-control" id="inputName" placeholder="Ingresar nombre">
-                        </div>
-                        <div class="form-group col-md-6">
-                            <label for="inputLastName">Apellidos</label>
-                            <input type="text" class="form-control" id="inputLastName" placeholder="Ingresar apellidos">
-                        </div>
+        <div class="container-fluid">  
+            <div class="card-header">FECHAS</div>       
+            <div class="form-group">
+              <div class="form-row">
+    
+                <div class="col-md-7">              
+                </div>
+    
+                <div class="col-md-2">
+                    <label for="exampleInputName">Fecha de Matrícula</label>               
+                    <!-- Form code begins -->
+                    <form method="post">
+                      <div class="form-group"> <!-- Date input -->
+                        <input class="form-control" id="tvDateMatr" name="date" readonly="readonly" placeholder="DD/MM/YYYY" type="text"/>
+                      </div>                     
+                    </form>   
+                </div>  
+    
+                <div class="col-md-3">
+                  <label for="exampleInputName">Fecha de ingreso</label>               
+                    <!-- Form code begins -->
+                  <form method="post">
+                    <div class="form-group"> <!-- Date input -->
+                      <input class="form-control" id="tvDateIngr" name="date" readonly="readonly" placeholder="DD/MM/YYYY" type="text"/>
+                    </div>                     
+                  </form>   
+                </div>
+    
+              </div>              
+            </div>
+    
+          <div class="card-header">Registro Estudiante</div>
+            <div class="card-body">
+              <form id="contactForm" method="post" >
+    
+                <div class="form-group">
+                  <div class="form-row">
+    
+                    <div class="col-md-6">
+                      <label for="exampleInputName">Nombres</label>
+                      <input class="form-control" id="tvName"  name="fullName" type="text" aria-describedby="nameHelp" placeholder="Ingrese nombre">
                     </div>
-            
+    
+                    <div class="col-md-6">
+                      <label for="exampleInputLastName">Tipo de Documento</label>
+    
+                       <div class="form-group">                 
+                        <select class="form-control" id="spTipoDoc">
+                          <option>Tarjeta de Identidad</option>
+                          <option>Cédula de Ciudadania</option>
+                          <option>Registro Civil</option>                     
+                        </select>
+                      </div>
+    
+                    </div>
+                  </div>              
+                </div>
+             
+    
+                <div class="form-group">
+                  <div class="form-row">
+                    <div class="col-md-6">
+                      <label for="exampleInputName">Apellidos</label>
+                      <input class="form-control" id="tvApellido" type="text" aria-describedby="nameHelp" placeholder="Ingrese apellidos">
+                    </div>
+                    <div class="col-md-6">
+                      <label for="exampleInputLastName">Número de Documento</label>
+                      <input class="form-control" id="tvNumDoc" type="text" aria-describedby="nameHelp" onkeypress='return event.charCode >= 48 && event.charCode <= 57' placeholder="Ingrese número de documento">
+                    </div>
+                  </div>              
+                </div> 
+    
+                <div class="form-group">
+                  <div class="form-row">
+                    <div class="col-md-5">
+                      <label for="exampleInputName">Fecha de Nacimiento</label>               
+                        <!-- Form code begins -->
+                        <form method="post">
+                          <div class="form-group"> <!-- Date input -->
+                            <input class="form-control" id="tvDate" name="date" readonly="readonly" placeholder="DD/MM/YYYY" type="text"/>
+                          </div>                     
+                        </form>                    
+                    </div>
+    
+                    <div class="col-md-2">
+                      <label for="exampleInputLastName">RH</label>       
+                        <div class="form-group">                 
+                          <select class="form-control" id="spRH">
+                            <option>A+</option>
+                            <option>A-</option>
+                            <option>B+</option>    
+                            <option>B-</option>  
+                            <option>AB+</option>                  
+                            <option>AB-</option>
+                            <option>O+</option>
+                            <option>O-</option>
+                          </select>
+                      </div>                
+                    </div>
+    
+                    <div class="col-md-5">
+                      <label for="exampleInputLastName">Sexo</label>
+                         <div class="form-group">                 
+                        <select class="form-control" id="spSexo">
+                          <option>Masculino</option>
+                          <option>Femenino</option>
+                          <option>Otro</option>                     
+                        </select>
+                      </div>
+                    </div>
+    
+                  </div>              
+                </div>
+    
+                <div class="form-group">
+                  <div class="form-row">
+                    <div class="col-md-7">
+                      <label for="exampleInputName">Dirección de Residencia</label>
+                      <input class="form-control" id="tvDir" type="text" aria-describedby="nameHelp" placeholder="Ingrese dirección">
+                    </div>
+                    <div class="col-md-2">
+                      <label for="exampleInputLastName">Teléfono</label>
+                      <input class="form-control" id="tvTelefono" type="text" onkeypress='return event.charCode >= 48 && event.charCode <= 57' aria-describedby="nameHelp" placeholder="Ingrese télefono">
+                    </div>              
+                    <div class="col-md-3">
+                      <label for="exampleInputLastName">Celular</label>
+                      <input class="form-control" id="tvCelular" type="text" onkeypress='return event.charCode >= 48 && event.charCode <= 57'  aria-describedby="nameHelp" size ="10" placeholder="Ingresar número">
+                    </div>
+                  </div>              
+                </div>
+    
+                <div class="form-group">
+                  <div class="form-row" id="someId">    
+                    
+                    <div class="col-md-4">
+                        <label for="exampleInputName">Localidad o Sector</label>
+                        <input class="form-control" id="tvLocalidadSector" type="text" aria-describedby="nameHelp" placeholder="Ingrese barrio o vereda">
+                    </div>
+    
+                    <div class="col-md-8">
+                      <label for="exampleInputLastName">Estrato Socioeconómico</label>
+                      <div class="form-group">                 
+                        <select class="form-control" id="spEstrato">
+                          <option>1</option>
+                          <option>2</option>
+                          <option>3</option>       
+                          <option>4</option> 
+                          <option>5</option> 
+                          <option>6</option>               
+                        </select>
+                      </div>
+                    </div>
+                  </div>              
+                </div>
+             
+    
+    
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Afiliación a Salud</label>
+                  <div class="form-group">                 
+                        <select class="form-control" id="spEPS">
+                          <option>CAFESALUD</option>
+                          <option>COOMEVA</option>
+                          <option>FUNDACIÓN MEDICO PREVENTIVA</option>       
+                          <option>NUEVA EPS</option> 
+                          <option>NUEVA EPS SUBSIDIADA</option> 
+                          <option>SAVIA SALUD</option>
+                          <option>SISBEN</option>    
+                          <option>SURA</option> 
+                          <option>OTRA</option>      
+                          <option>NINGUNA</option>      
+                        </select>
+                      </div>
+                </div>
+                
+                <div class="card-header">DATOS FAMILIARES</div>       
+                  <div class="form-group">
                     <div class="form-row">
-                        <div class="form-group col-md-5">
-                            <label for="inputNumId">Documento de identidad</label>
-                            <input type="text" class="form-control" id="inputNumId" placeholder="Ingresar numero del documento">
+    
+                      <div class="col-md-7">
+                        <label for="exampleInputName">Nombre del Acudiente</label>
+                        <input class="form-control" id="tvnameA" type="text" aria-describedby="nameHelp" placeholder="Ingrese nombre completo del acudiente">
+                      </div>
+    
+                      <div class="col-md-2">
+                        <label for="exampleInputLastName">Parentesco</label>
+                         <div class="form-group">                 
+                              <select class="form-control" id="spParentesco">
+                                <option></option>
+                                <option>Madre</option>
+                                <option>Padre</option>
+                                <option>Tía/o</option>  
+                                <option>Abuela/o</option>      
+                                <option>Hermana/o</option>     
+                                <option>Prima/o</option> 
+                                <option>Otro</option>
+                                <option>No aplica</option>
+                              </select>
+                           </div>
+                      </div>  
+    
+                      <div class="col-md-3">
+                        <label for="exampleInputLastName">Teléfono Acudiente</label>
+                        <input class="form-control" id="tvTelAcu" onkeypress='return event.charCode >= 48 && event.charCode <= 57' type="text" aria-describedby="nameHelp" placeholder="Ingrese teléfono acudiente">
+                      </div>
+    
+                    </div>              
+                  </div>
+            
+    
+                <div class="card-header">DATOS DE MATRÍCULA</div>       
+                  <div class="form-group">
+                    <div class="form-row">
+    
+                      <div class="col-md-7">
+                        <label for="exampleInputName">Proceso Formativo</label>
+                           <div class="form-group">                 
+                              <select class="form-control" id="spProcesoForm">
+                                <option>P.O.N</option>
+                                <option>CURSO</option>
+                                <option>P.O.N - CURSO</option>              
+                              </select>
+                           </div>
+                      </div>
+    
+                      <div class="col-md-2">
+                        <label for="exampleInputLastName">Instrumento</label>
+                         <div class="form-group">                 
+                          <select class="form-control" id="spInstrumentos">
+                            <option>Bandola</option>
+                            <option>Bajo Eléctrico</option>
+                            <option>Contrabajo</option> 
+                            <option>Guitarra</option> 
+                            <option>Teclado/Piano</option> 
+                            <option>Tiple</option>      
+                            <option>Técnica vocal</option> 
+                            <option>Violín</option>
+                            <option>Viola</option>
+                            <option>Violoncello</option>                       
+                            <option>Otro</option>         
+                          </select>
                         </div>
-                        <div class="form-group col-md-5">
-                            <label for="inputLastName">Ciudad de expedicion</label>
-                            <input type="text" class="form-control" id="inputLastName" placeholder="Ej: Medellin">
+                      </div>  
+    
+                      <div class="col-md-3">
+                        <label for="exampleInputLastName">Propio</label>
+                        <div class="form-group">                 
+                          <select class="form-control" id="spPropio">
+                            <option>Si</option>
+                            <option>No</option>
+                            <option>No aplica</option>              
+                          </select>
                         </div>
-                        <div class="form-group col-md-2">
-                            <label for="inputTypeId">Tipo</label>
-                            <select id="inputTypeId" class="form-control">
-                                <option selected>C.C.</option>
-                                <option>T.I.</option>
+                      </div>
+    
+                  </div>              
+                </div>     
+                <div class="card-header">DATOS FINANCIACIÓN</div>       
+                  <div class="form-group">
+                    <div class="form-row">
+    
+                  
+                    <div class="col-md-3">
+                      <label for="exampleInputLastName">Becado</label>
+                      <div class="form-group">                 
+                        <select class="form-control" id="spBecado">
+                          <option>Si</option>
+                          <option>No</option>
+                          <option>No aplica</option>              
+                        </select>
+                      </div>
+                    </div>
+    
+                    <div class="col-md-9">
+                        <label for="exampleInputName">Entidad</label>
+                        <input class="form-control" id="tvEntidad" type="text" aria-describedby="nameHelp" placeholder="Ingrese entidad">
+                      </div>
+    
+                </div>              
+              </div>      
+    
+              <div class="card-header">VALOR MATRÍCULA</div>       
+                    <div class="form-group">
+                      <div class="form-row">
+                      
+                        <div class="col-md-8">
+                          <label for="exampleInputLastName">Valor Matrícula</label>
+                          <input class="form-control" id="tvValorM" onkeypress='return event.charCode >= 48 && event.charCode <= 57' type="text" aria-describedby="nameHelp" placeholder="Ingrese valor matrícula">
+                        </div>  
+                        
+                        <div class="col-md-4">
+                          <label for="exampleInputLastName">Descuento</label>
+                          <div class="form-group">                 
+                            <select class="form-control" id="spDescuento">
+                              <option>No aplica</option>
+                              <option>Descuento semestral</option>
+                              <option>Descuento anual</option>              
                             </select>
+                          </div>
                         </div>
-                    </div>
-            
-                    <div class="form-row">
-                        <div class="form-group col-md-6">
-                            <label for="inputBirthDate">Fecha de nacimiento</label>
-                            <input type="text" class="form-control" id="inputBirthDate" placeholder="dia(00)/mes(00)/año(0000)">
-                        </div>
-                        <div class="form-group col-md-6">
-                            <label for="inputEps">EPS</label>
-                            <input type="text" class="form-control" id="inputEps" placeholder="Ingresar EPS">
-                        </div>
-                    </div>
-            
-                    <div class="form-row">
-                        <div class="form-group col-md-8">
-                            <label for="inputTypeSquadron">Escuadron</label>
-                            <select id="inputTypeSquadron" class="form-control">
-                                <option selected>Colors</option>
-                                <option>Vientos</option>
-                                <option>Maderas</option>
-                                <option>Liras</option>
-                                <option>Percusion latina</option>
-                                <option>SnareLine</option>
-                                <option>BassLine</option>
-            
-                            </select>
-                        </div>
-                        <div class="form-group col-md-2">
-                            <label for="inputTypeExperience">Experiencia</label>
-                            <select id="inputTypeExperience" class="form-control">
-                                <option selected>Si</option>
-                                <option>No</option>
-                            </select>
-                        </div>
-                    </div>
-            
-            
-                    <button type="submit" class="btn btn-primary">Submit</button>
-            </form>
-        </div>
-    </div>        
+                      
+                      </div>              
+              </div>
+    
+                <div id="my-alert-success" class="alert alert-success hidden" role="alert" style="display:none">
+                    <button type="button" class="close" id="btn-success" aria-label="Close">    
+                        <span aria-hidden="true">&times;</span>
+                    </button> 
+                    <strong>Éxito!</strong> Se ha registrado el estudiante.
+                </div>
+                <div id="my-alert-danger" class="alert alert-danger hidden" role="alert" style="display:none">
+                    <button type="button" id="btn-danger" class="close" aria-label="Close">    
+                        <span aria-hidden="true">&times;</span>
+                    </button> 
+                   <p id="txtError"> </p>
+                </div>
+    
+                <div class="text-center col-md-4" id="divBtnReg">
+                  <a class="btn btn-primary btn-block" id="btnAddEst" >Registrar</a>
+                </div>
+    
+              </form>          
+            </div>  
+           </div>
+    </div>
   
   <!-- /.content-wrapper-->
     <footer class="sticky-footer">
@@ -106,5 +362,7 @@
     <script src="../vendor/jquery/jquery.min.js"></script>
     <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="../js/util.js"></script>
+    <script type="text/javascript" src="../js/bootstrap-datepicker.js"></script>
+    <script src="../js/newMember.js"></script>
 </body>
 </html>
