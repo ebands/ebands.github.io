@@ -9,30 +9,47 @@ var config =  {
     messagingSenderId: "884124638954"
   };  
 
+//////////////////////////
+//VARIABLES
+/////////////////////////
+
 var btnRegistrar = $("#divBtnReg");
 var defaultApp = firebase.initializeApp(config);
 var fb = firebase.database().ref();
   // Initialize Firebase
+
+  
+//////////////////////////
+//Metodos
+/////////////////////////
+
+/**Metodo de inialización del documento, comienza por aquí**/
  $(function(){     
     btnRegistrar.click(function() {
         addElement();
      });
  });
 
-
+/**Metodo que agrega un elemento al inventario en la base de datos**/
 function addElement(){
     var nameInstrument =$("#tvName"); 
     var typeInstrument = $("#spTipOb");    
-    console.log(nameInstrument.val(), typeInstrument.val()) 
     var postData = {
         nameInstrument:nameInstrument.val(),
         typeInstrument:typeInstrument.val()
     };  
-    // Get a key for a new Post.
+    //Obtiene un nuevo key para realizar el Post.
     var newPostKey = fb.child('inventario').push().key;
-    // Write the new post's data simultaneously in the posts list and the user's post list.
+    // Escribe el nuevo post's simultaneamente en el posts list y en el user's post list.
     var updates = {};
     updates['/inventario/' + newPostKey] = postData;
-    // updates['/user-posts/' + uid + '/' + newPostKey] = postData;
     return fb.update(updates);
-  }
+}
+
+/**Metodo que vacía una lista de campos**/
+function vaciarCamps(){
+    var inputs =[nameInstrument,typeInstrumen];      
+    for (i = 0; i < inputs.length; i++) { 
+        inputs[i].val("");
+    } 
+}
