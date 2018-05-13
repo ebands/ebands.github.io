@@ -27,6 +27,7 @@ var fb = firebase.database().ref();
  $(function(){     
     btnRegistrar.click(function() {
         addElement();
+        vaciarCamps();
      });
  });
 
