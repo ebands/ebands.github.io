@@ -18,7 +18,6 @@ var defaultApp = firebase.initializeApp(config);
 var nameInstrument =$("#tvName"); 
 var typeInstrument = $("#spTipOb");    
 var fb = firebase.database().ref();
-  // Initialize Firebase
 
   
 //////////////////////////

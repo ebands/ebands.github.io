@@ -30,38 +30,14 @@
             </div>
         </div>
 
-        <table id="example" class="table table-striped table-bordered table-responsive table-hover" cellspacing="0" width="100%">
+        <table id="tableInvent" class="table table-striped table-bordered table-responsive table-hover" cellspacing="0" width="100%">
             <thead>
                 <tr>
+                    <th>ID</th>
                     <th>Nombre</th>
-                    <th>Tipo de indumentaria</th>
-                    
+                    <th>Tipo de indumentaria</th>                    
                 </tr>
-            </thead>
-            <tfoot>
-                <tr>
-                    <th>Nombre</th>
-                    <th>Tipo de indumentaria</th>
-                </tr>
-            </tfoot>
-            <tbody>
-                <tr>
-                    <td>Flauta</td>
-                    <td>Instrumento</td>
-                    
-                </tr>
-                <tr>
-                    <td>Guitarra</td>
-                    <td>Instrumento</td>
-                    
-                </tr>
-                <tr>
-                    <td>Escoba</td>
-                    <td>Implemento de aseo</td>
-                
-                </tr>
-            
-            </tbody>
+            </thead>            
         </table>
     
       </div>
@@ -80,11 +56,18 @@
       <i class="fa fa-angle-up"></i>
     </a>
    
-    
+     <!--Importante agregarlo para la conexión a firebase-->
+     <script src="https://www.gstatic.com/firebasejs/5.0.2/firebase.js"></script> 
+
     <!-- Bootstrap core JavaScript -->
     <script src="../vendor/jquery/jquery.min.js"></script>
     <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>    
+    <!--DataTables-->
+    <script src="../vendor/datatables/jquery.dataTables.js"></script>
+    <script src="../vendor/datatables/dataTables.bootstrap4.js"></script>
+
     <script src="../js/util.js"></script>
+    <script src="../js/inventario.js"></script>
     
 </body>
 </html>
