@@ -15,6 +15,8 @@ var config =  {
 
 var btnRegistrar = $("#divBtnReg");
 var defaultApp = firebase.initializeApp(config);
+var nameInstrument =$("#tvName"); 
+var typeInstrument = $("#spTipOb");    
 var fb = firebase.database().ref();
   // Initialize Firebase
 
@@ -26,15 +28,12 @@ var fb = firebase.database().ref();
 /**Metodo de inialización del documento, comienza por aquí**/
  $(function(){     
     btnRegistrar.click(function() {
-        addElement();
-        vaciarCamps();
+        addElement();       
      });
  });
 
 /**Metodo que agrega un elemento al inventario en la base de datos**/
 function addElement(){
-    var nameInstrument =$("#tvName"); 
-    var typeInstrument = $("#spTipOb");    
     var postData = {
         nameInstrument:nameInstrument.val(),
         typeInstrument:typeInstrument.val()
@@ -44,12 +43,13 @@ function addElement(){
     // Escribe el nuevo post's simultaneamente en el posts list y en el user's post list.
     var updates = {};
     updates['/inventario/' + newPostKey] = postData;
+    vaciarCamps();
     return fb.update(updates);
 }
 
 /**Metodo que vacía una lista de campos**/
 function vaciarCamps(){
-    var inputs =[nameInstrument,typeInstrumen];      
+    var inputs =[nameInstrument,typeInstrument];      
     for (i = 0; i < inputs.length; i++) { 
         inputs[i].val("");
     } 
