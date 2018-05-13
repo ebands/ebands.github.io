@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title></title>
   <!-- Bootstrap core CSS -->
-  <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet"> 
+  <link href="../vendor/bootstrap/css/bootstrap.css" rel="stylesheet"> 
     <!-- Custom fonts for this template-->
   <link href="../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
   <!-- Page level plugin CSS-->
@@ -38,7 +38,7 @@
               <div class="form-row">
 
                 <div class="col-md-6">
-                  <label for="exampleInputName">Nombre</label>
+                  <label for="exampleInputName">Nombre Instrumento</label>
                   <input class="form-control" id="tvName"  name="fullName" type="text" aria-describedby="nameHelp" placeholder="Ingrese nombre del objeto">
                 </div>
 
@@ -46,7 +46,7 @@
                   <label for="exampleInputLastName">Tipo de indumentaria</label>
 
                    <div class="form-group">                 
-                    <select class="form-control" id="spTipoDoc">
+                    <select class="form-control" id="spTipOb">
                       <option>Instrumento músical</option>
                       <option>Instrumento de aseo</option>                   
                     </select>
@@ -57,7 +57,7 @@
             </div>
          
             </form>
-            <div class="text-center col-md-4" id="divBtnReg">
+            <div class="text-center col-md-12" id="divBtnReg">
               <a class="btn btn-primary btn-block" id="btnAddEst" >Registrar</a>
             </div>
       </div>
@@ -77,10 +77,15 @@
     </a>
    
     
-    <!-- Bootstrap core JavaScript -->
-    <script src="../vendor/jquery/jquery.min.js"></script>
-    <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>    
-    <script src="../js/util.js"></script>
+  <!--Importante agregarlo para la conexión a firebase-->
+  <script src="https://www.gstatic.com/firebasejs/5.0.2/firebase.js"></script> 
+
+  <!-- Bootstrap core JavaScript --> 
+  <script src="../vendor/jquery/jquery.min.js"></script> 
+  <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>    
+  <script src="../js/util.js"></script>     
+  <script src="../js/registroI.js"></script>
+
     
 </body>
 </html>

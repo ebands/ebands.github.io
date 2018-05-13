@@ -3083,8 +3083,10 @@ fieldset:disabled a.btn {
 }
 
 .btn-block {
-  display: block;
-  width: 100%;
+ 
+  align-items: center;
+  justify-content: center;
+  width: 20%;  
 }
 
 .btn-block + .btn-block {
