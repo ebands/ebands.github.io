@@ -22,14 +22,16 @@ var pop =  $("#pop-up-info");
 var btnUpdateInt = $("#btnUpdateInt");
 var nameInstrument =$("#tvName"); 
 var typeInstrument = $("#spTipOb");   
+var url = "login.html";    
 var key ;
+var userId ;
 
 //////////////////////////
 //METODOS
 /////////////////////////
 
 /**Metodo que obtiene los datos de la BD y los carga en un dataTable**/
-function getData(){ 
+function getData() { 
   //userId = firebase.auth().currentUser.uid
     return redt.once('value').then(function(snapshot) {  		
     snapshot.forEach(function(child){       
@@ -51,7 +53,7 @@ function getData(){
   });
 }
 
-/****/
+/**Onclick de los botones edición del DataTable, carga un popUp con la información de la fila**/
 tableInvent.on('click', '.edicion', function () {
   var RowIndex = $(this).closest('tr');
   var data = tableInvent.row(RowIndex).data(); 
@@ -66,7 +68,7 @@ tableInvent.on('click', '.edicion', function () {
 
 });
 
-/****/
+/**Onclick de los botones edición del DataTable, Elimina la fila del boton que se haya seleccinado**/
 tableInvent.on('click', '.borrar', function () {
   var RowIndex = $(this).closest('tr');
   var data = tableInvent.row(RowIndex).data(); 
@@ -80,13 +82,13 @@ tableInvent.on('click', '.borrar', function () {
 
 });
 
-/****/
-btnUpdateInt.click(function(){
+/**Onclick del boton Actualizar del popUP, actualiza la fila que se haya seleccionado, con la información que se haya cambiado**/
+btnUpdateInt.click( function() {
   updateEst(key);
 });
 
-/****/
-function updateEst(key){
+/**Actualiza un instrumento con el key de este pasado por parametro**/
+function updateEst(key) {
   var fechaMatricula =$("#tvDateMatr");
   var fechaIngreso =  $("#tvDateIngr");
 
@@ -100,13 +102,14 @@ function updateEst(key){
   return fb.update(updates);
 }
 
-/****/
+/**Escucha cambios en en el nodo Inventario, para actualizar la información del DataTable y cerrar el popUP**/
 commentsRef.on('child_changed', function(data) {     
    rechargeTable();
   pop.close();
 });
 
-function rechargeTable(){
+/**Actualiza la información del DataTable**/
+function rechargeTable() {
   tableInvent
   .clear()
   .draw();
@@ -116,7 +119,16 @@ function rechargeTable(){
     alert("cannot recharge de page")   
   }
 }
+
 /**Metodo de inialización del documento, comienza por aquí**/
- $(function(){     
-    getData();
+ $(function() {    
+  firebase.auth().onAuthStateChanged(function(user) {
+    if (user) {    
+      user = firebase.auth().currentUser; 
+      getData();  
+    } else {
+       $(location).attr('href',url);   
+    }
+  });
+  
  });

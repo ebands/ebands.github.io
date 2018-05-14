@@ -1,4 +1,5 @@
 
+
 $(function(){  
     $("#nav-placeholder").load("nav.html");
     $("#sendMessageButton").click(function(){
@@ -20,5 +21,5 @@ $(function(){
                     alert(response);
                   }
           });
-    });
+    });   
   });
