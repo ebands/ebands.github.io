@@ -13,7 +13,7 @@
   <link href="../vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
   <!-- Custom styles for this template-->
   <link href="../css/sb-admin.css" rel="stylesheet">
-    
+  <link rel="stylesheet" href="../css/style.css">
 </head>
 <body class="fixed-nav sticky-footer bg-dark" id="page-top">
 
@@ -35,13 +35,50 @@
                 <tr>
                     <th>ID</th>
                     <th>Nombre</th>
-                    <th>Tipo de indumentaria</th>                    
+                    <th>Tipo de indumentaria</th>       
+                    <th>Editar</th>             
+                    <th>Borrar</th>
                 </tr>
             </thead>            
         </table>
     
       </div>
     </div>
+
+     <!-- PopUP-->
+  <div id="pop-up-info" style="display:none" >
+    <a class="b-close">×</a>
+    <div class="card-header">Edición Inventario </div>    
+    <div class="card-body">  
+      <form id="contactForm">
+        <div class="form-group">
+          <div class="form-row">
+
+            <div class="col-md-6">
+              <label for="exampleInputName">Nombre Instrumento</label>
+              <input class="form-control" id="tvName"  name="fullName" type="text" aria-describedby="nameHelp" placeholder="Ingrese nombre del objeto">
+            </div>
+
+            <div class="col-md-6">
+              <label for="exampleInputLastName">Tipo de indumentaria</label>
+
+                <div class="form-group">                 
+                <select class="form-control" id="spTipOb">
+                  <option></option>
+                  <option>Instrumento músical</option>
+                  <option>Instrumento de aseo</option>                   
+                </select>
+              </div>
+
+            </div>
+          </div>              
+        </div>         
+      </form>
+      <div class="text-center col-md-12" id="divBtnReg">
+        <a class="btn btn-primary btn-block" id="btnUpdateInt" >Actualizar</a>
+      </div>
+    </div>
+  </div>
    
     <!-- /.content-wrapper-->
     <footer class="sticky-footer">
@@ -65,7 +102,7 @@
     <!--DataTables-->
     <script src="../vendor/datatables/jquery.dataTables.js"></script>
     <script src="../vendor/datatables/dataTables.bootstrap4.js"></script>
-
+    <script src="../js/bpopup.js"></script>
     <script src="../js/util.js"></script>
     <script src="../js/inventario.js"></script>
     

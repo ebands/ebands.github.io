@@ -7,7 +7,7 @@ var config =  {
     projectId: "contabilidade-78eda",
     storageBucket: "contabilidade-78eda.appspot.com",
     messagingSenderId: "884124638954"
-  };  
+};  
 
 //////////////////////////
 //VARIABLES
@@ -18,7 +18,6 @@ var defaultApp = firebase.initializeApp(config);
 var nameInstrument =$("#tvName"); 
 var typeInstrument = $("#spTipOb");    
 var fb = firebase.database().ref();
-
   
 //////////////////////////
 //Metodos
