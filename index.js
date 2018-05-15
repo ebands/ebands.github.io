@@ -14,6 +14,25 @@ app.listen(port, function(){
     console.log("app running");
 })
 
+var admin = require('firebase-admin');
+
+var serviceAccount = require('./contabilidade-78eda-firebase-adminsdk-esjeu-e274d3296a.json');
+
+if (!admin.apps.length) {
+    admin.initializeApp({
+        credential: admin.credential.cert(serviceAccount),
+        databaseURL: 'https://contabilidade-78eda.firebaseio.com'
+      });
+}
+
+var db = admin.database();
+var ref = db.ref("inventario");
+var value ;
+ref.once("value", function(snapshot) {
+    value = snapshot.val();
+     console.log(value);     
+});
+
 /*var route = express.Router();
 
 route.get('/', function(req, res){
