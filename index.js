@@ -14,6 +14,36 @@ app.listen(port, function(){
     console.log("app running");
 })
 
+app.get('/get', (req, res) => {
+    var db = admin.database();
+    var ref = db.ref("inventario");
+    var value ;
+    ref.once("value", function(snapshot) {
+        value = snapshot.val();
+        console.log(value);     
+    });
+    res.send(value)
+  })
+
+  app.get('/set', (req, res) => {
+    var db = admin.database();
+    var ref = db.ref("inventario");
+    var value ;
+    var usersRef = ref;
+    var newPostRef = usersRef .push();
+    var key = newPostRef.key;
+    newPostRef.set({      
+            nameInstrument: 'Escoba',
+            typeInstrument: 'Instrumento de aseo'        
+    });
+    /*postsRef.push().set({
+        author: "alanisawesome",
+        title: "The Turing Machine"
+    });*/
+  })
+
+  
+
 var admin = require('firebase-admin');
 
 var serviceAccount = require('./contabilidade-78eda-firebase-adminsdk-esjeu-e274d3296a.json');
@@ -25,13 +55,7 @@ if (!admin.apps.length) {
       });
 }
 
-var db = admin.database();
-var ref = db.ref("inventario");
-var value ;
-ref.once("value", function(snapshot) {
-    value = snapshot.val();
-     console.log(value);     
-});
+
 
 /*var route = express.Router();
 
