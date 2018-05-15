@@ -1,0 +1,5 @@
+{
+-LCYwiL07_4dEhLwmfrT:
+    { nameInstrument: 'Guantes',
+    typeInstrument: 'Instrumento de aseo' }
+}

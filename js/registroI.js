@@ -26,7 +26,8 @@ var fb = firebase.database().ref();
 /**Metodo de inialización del documento, comienza por aquí**/
  $(function(){     
     btnRegistrar.click(function() {
-        addElement();       
+        postItem();
+       // addElement();       
      });
  });
 
@@ -40,7 +41,8 @@ function addElement(){
     var newPostKey = fb.child('inventario').push().key;
     // Escribe el nuevo post's simultaneamente en el posts list y en el user's post list.
     var updates = {};
-    updates['/inventario/' + newPostKey] = postData;
+    updates['/inventario/' + newPostKey] = postData; 
+    
     vaciarCamps();
     return fb.update(updates);
 }
@@ -51,4 +53,42 @@ function vaciarCamps(){
     for (i = 0; i < inputs.length; i++) { 
         inputs[i].val("");
     } 
+}
+
+function readfile() {
+    var data = {};
+    data.path = 'pgadmin.txt';
+    data.ext = '.txt';
+    console.log(data);
+    $.ajax({
+        url: '/read',
+        type: 'POST',
+        contentType: 'application/json',
+        data: JSON.stringify(data),
+        success: function(data) {
+            console.log(data);
+        }
+    });
+}
+
+function postItem(){
+      var dat= {
+        test:'hola',
+        cosa:'hola 2'
+      };
+      
+      var options = {
+        url: "/read",
+        dataType: "text",
+        type: "POST",
+        data: {nameInstrument:nameInstrument.val(),
+             typeInstrument:typeInstrument.val() },//test: JSON.stringify( data ) }, // Our valid JSON string
+        success: function( data, status, xhr ) {
+           //...
+        },
+        error: function( xhr, status, error ) {
+            //...
+        }
+      };
+      $.ajax( options );
 }
