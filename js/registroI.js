@@ -62,7 +62,7 @@ function postItem(){
       };
       
       var options = {
-        url: "/read",
+        url: "/write_invent",
         dataType: "text",
         type: "POST",
         data: {nameInstrument:nameInstrument.val(),
