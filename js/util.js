@@ -1,5 +1,6 @@
 
-$(function(){
+
+$(function(){  
     $("#nav-placeholder").load("nav.html");
     $("#sendMessageButton").click(function(){
       var parametros = {
@@ -20,5 +21,5 @@ $(function(){
                     alert(response);
                   }
           });
-    });
+    });   
   });

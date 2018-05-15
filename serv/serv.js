@@ -9,12 +9,41 @@ var server = http.createServer( listener );
 function listener(req, res){
 console.log( "Peticion recibida: " + req.url );
 
+// Descompone la URL en sus componentes
+var params = url.parse( req.url );
+// convierte las partes del path en un array
+var folders = params.pathname.split("/");
+var idx = folders.indexOf('ventanas');
+console.log("fold"+folders, idx);
+var archivo = params.pathname;
+
+
+var admin = require('firebase-admin');
+
+var serviceAccount = require('../serv/contabilidade-78eda-firebase-adminsdk-esjeu-e274d3296a.json');
+
+if (!admin.apps.length) {
+    admin.initializeApp({
+        credential: admin.credential.cert(serviceAccount),
+        databaseURL: 'https://contabilidade-78eda.firebaseio.com'
+      });
+}
+
+
 if(req.url == "/fecha"){
     var fecha = new Date();
     res.write("La fecha actual es: " + fecha);
     res.end();
 } else if(req.url == "/hola"){
-    res.end("Hola mundo");
+    var db = admin.database();
+    var ref = db.ref("inventario");
+    var value ;
+    ref.once("value", function(snapshot) {
+        value = snapshot.val();
+         console.log(value);     
+    });
+    res.end("hola mundo");
+
 } else if(req.url == "/headers"){
     res.write(req.rawHeaders+"");
     res.end();
@@ -24,17 +53,25 @@ if(req.url == "/fecha"){
         res.writeHead(200, { });
         readStream.pipe(res);
     });
-}else{
+}/*else if(req.url == "/ventanas/inventario.html"){
+   
+}else if(req.url == "/ventanas/membersRecord.html"){
+   
+}else if(req.url == "/ventanas/nav.html"){
+   
+}else if(req.url == "/ventanas/newMember.html"){
+   
+}else if(req.url == "/ventanas/pagos.html"){
+   
+}else if(req.url == "/ventanas/registroInventario.html"){
+   
+}else if(req.url == "/ventanas/reportePagos.html"){
+   
+}else if(req.url == "/ventanas/welcomeAdmin.html"){
+   
+}*/else{
     paginaPorDefecto( req, res );
 }
-
-// Descompone la URL en sus componentes
-var params = url.parse( req.url );
-// convierte las partes del path en un array
-var folders = params.pathname.split("/");
-console.log(folders);
-var archivo = params.pathname;
-
 
 }
 

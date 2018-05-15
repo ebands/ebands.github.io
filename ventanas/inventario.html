@@ -13,7 +13,7 @@
   <link href="../vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
   <!-- Custom styles for this template-->
   <link href="../css/sb-admin.css" rel="stylesheet">
-    
+  <link rel="stylesheet" href="../css/style.css">
 </head>
 <body class="fixed-nav sticky-footer bg-dark" id="page-top">
 
@@ -30,42 +30,55 @@
             </div>
         </div>
 
-        <table id="example" class="table table-striped table-bordered table-responsive table-hover" cellspacing="0" width="100%">
+        <table id="tableInvent" class="table table-striped table-bordered table-responsive table-hover" cellspacing="0" width="100%">
             <thead>
                 <tr>
+                    <th>ID</th>
                     <th>Nombre</th>
-                    <th>Tipo de indumentaria</th>
-                    
+                    <th>Tipo de indumentaria</th>       
+                    <th>Editar</th>             
+                    <th>Borrar</th>
                 </tr>
-            </thead>
-            <tfoot>
-                <tr>
-                    <th>Nombre</th>
-                    <th>Tipo de indumentaria</th>
-                </tr>
-            </tfoot>
-            <tbody>
-                <tr>
-                    <td>Flauta</td>
-                    <td>Instrumento</td>
-                    
-                </tr>
-                <tr>
-                    <td>Guitarra</td>
-                    <td>Instrumento</td>
-                    
-                </tr>
-                <tr>
-                    <td>Escoba</td>
-                    <td>Implemento de aseo</td>
-                
-                </tr>
-            
-            </tbody>
+            </thead>            
         </table>
     
       </div>
     </div>
+
+     <!-- PopUP-->
+  <div id="pop-up-info" style="display:none" >
+    <a class="b-close">×</a>
+    <div class="card-header">Edición Inventario </div>    
+    <div class="card-body">  
+      <form id="contactForm">
+        <div class="form-group">
+          <div class="form-row">
+
+            <div class="col-md-6">
+              <label for="exampleInputName">Nombre Instrumento</label>
+              <input class="form-control" id="tvName"  name="fullName" type="text" aria-describedby="nameHelp" placeholder="Ingrese nombre del objeto">
+            </div>
+
+            <div class="col-md-6">
+              <label for="exampleInputLastName">Tipo de indumentaria</label>
+
+                <div class="form-group">                 
+                <select class="form-control" id="spTipOb">
+                  <option></option>
+                  <option>Instrumento músical</option>
+                  <option>Instrumento de aseo</option>                   
+                </select>
+              </div>
+
+            </div>
+          </div>              
+        </div>         
+      </form>
+      <div class="text-center col-md-12" id="divBtnReg">
+        <a class="btn btn-primary btn-block" id="btnUpdateInt" >Actualizar</a>
+      </div>
+    </div>
+  </div>
    
     <!-- /.content-wrapper-->
     <footer class="sticky-footer">
@@ -80,11 +93,18 @@
       <i class="fa fa-angle-up"></i>
     </a>
    
-    
+     <!--Importante agregarlo para la conexión a firebase-->
+     <script src="https://www.gstatic.com/firebasejs/5.0.2/firebase.js"></script> 
+
     <!-- Bootstrap core JavaScript -->
     <script src="../vendor/jquery/jquery.min.js"></script>
     <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>    
+    <!--DataTables-->
+    <script src="../vendor/datatables/jquery.dataTables.js"></script>
+    <script src="../vendor/datatables/dataTables.bootstrap4.js"></script>
+    <script src="../js/bpopup.js"></script>
     <script src="../js/util.js"></script>
-    
+    <script src="../js/inventario.js"></script>
+    <script src="../js/authDontDuplicate.js"></script>
 </body>
 </html>
