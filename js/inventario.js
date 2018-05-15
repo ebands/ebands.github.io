@@ -53,6 +53,18 @@ function getData() {
   });
 }
 
+function getFromServ(){
+  $.ajax({
+    url: "/get",
+    type: 'GET',
+    dataType: 'json', // added data type
+    success: function(res) {
+        console.log(res);
+        alert(res);
+    }
+});
+}
+
 /**Onclick de los botones edición del DataTable, carga un popUp con la información de la fila**/
 tableInvent.on('click', '.edicion', function () {
   var RowIndex = $(this).closest('tr');
@@ -126,6 +138,7 @@ function rechargeTable() {
     if (user) {    
       user = firebase.auth().currentUser; 
       getData();  
+      getFromServ();
     } else {
        $(location).attr('href',url);   
     }

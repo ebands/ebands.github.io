@@ -55,22 +55,6 @@ function vaciarCamps(){
     } 
 }
 
-function readfile() {
-    var data = {};
-    data.path = 'pgadmin.txt';
-    data.ext = '.txt';
-    console.log(data);
-    $.ajax({
-        url: '/read',
-        type: 'POST',
-        contentType: 'application/json',
-        data: JSON.stringify(data),
-        success: function(data) {
-            console.log(data);
-        }
-    });
-}
-
 function postItem(){
       var dat= {
         test:'hola',
