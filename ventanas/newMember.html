@@ -1,307 +1,255 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>EBand</title>
 
-    <!-- Bootstrap core CSS -->
-    <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-        <!-- Custom fonts for this template-->
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>EBand</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Custom fonts for this template-->
   <link href="../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
   <!-- Page level plugin CSS-->
   <link href="../vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
   <!-- Custom styles for this template-->
   <link href="../css/sb-admin.css" rel="stylesheet">
   <link href="../css/datepicker.css" rel="stylesheet">
-    
+
 </head>
-<body  class="fixed-nav sticky-footer bg-dark" id="page-top">
-      <!--Navigation bar-->
-    <div id="nav-placeholder"> </div>
 
-	<!--contenido -->
-    <div class="content-wrapper">
-        <div class="container-fluid">  
-            <div class="card-header">FECHAS</div>       
-            <div class="form-group">
-              <div class="form-row">
-    
-                <div class="col-md-7">              
-                </div>
-    
-                <div class="col-md-2">
-                    <label for="exampleInputName">Fecha de Matrícula</label>               
-                    <!-- Form code begins -->
-                    <form method="post">
-                      <div class="form-group"> <!-- Date input -->
-                        <input class="form-control" id="tvDateMatr" name="date" readonly="readonly" placeholder="DD/MM/YYYY" type="text"/>
-                      </div>                     
-                    </form>   
-                </div>  
-    
-                <div class="col-md-3">
-                  <label for="exampleInputName">Fecha de ingreso</label>               
-                    <!-- Form code begins -->
-                  <form method="post">
-                    <div class="form-group"> <!-- Date input -->
-                      <input class="form-control" id="tvDateIngr" name="date" readonly="readonly" placeholder="DD/MM/YYYY" type="text"/>
-                    </div>                     
-                  </form>   
-                </div>
-    
-              </div>              
-            </div>
-    
-          <div class="card-header">Registro Estudiante</div>
-            <div class="card-body">
-              <form id="contactForm" method="post" >
-    
-                <div class="form-group">
-                  <div class="form-row">
-    
-                    <div class="col-md-6">
-                      <label for="exampleInputName">Nombres</label>
-                      <input class="form-control" id="tvName"  name="fullName" type="text" aria-describedby="nameHelp" placeholder="Ingrese nombre">
-                    </div>
-    
-                    <div class="col-md-6">
-                      <label for="exampleInputLastName">Tipo de Documento</label>
-    
-                       <div class="form-group">                 
-                        <select class="form-control" id="spTipoDoc">
-                          <option>Tarjeta de Identidad</option>
-                          <option>Cédula de Ciudadania</option>
-                          <option>Registro Civil</option>                     
-                        </select>
-                      </div>
-    
-                    </div>
-                  </div>              
-                </div>
-             
-    
-                <div class="form-group">
-                  <div class="form-row">
-                    <div class="col-md-6">
-                      <label for="exampleInputName">Apellidos</label>
-                      <input class="form-control" id="tvApellido" type="text" aria-describedby="nameHelp" placeholder="Ingrese apellidos">
-                    </div>
-                    <div class="col-md-6">
-                      <label for="exampleInputLastName">Número de Documento</label>
-                      <input class="form-control" id="tvNumDoc" type="text" aria-describedby="nameHelp" onkeypress='return event.charCode >= 48 && event.charCode <= 57' placeholder="Ingrese número de documento">
-                    </div>
-                  </div>              
-                </div> 
-    
-                <div class="form-group">
-                  <div class="form-row">
-                    <div class="col-md-5">
-                      <label for="exampleInputName">Fecha de Nacimiento</label>               
-                        <!-- Form code begins -->
-                        <form method="post">
-                          <div class="form-group"> <!-- Date input -->
-                            <input class="form-control" id="tvDate" name="date" readonly="readonly" placeholder="DD/MM/YYYY" type="text"/>
-                          </div>                     
-                        </form>                    
-                    </div>
-    
-                    <div class="col-md-2">
-                      <label for="exampleInputLastName">RH</label>       
-                        <div class="form-group">                 
-                          <select class="form-control" id="spRH">
-                            <option>A+</option>
-                            <option>A-</option>
-                            <option>B+</option>    
-                            <option>B-</option>  
-                            <option>AB+</option>                  
-                            <option>AB-</option>
-                            <option>O+</option>
-                            <option>O-</option>
-                          </select>
-                      </div>                
-                    </div>
-    
-                    <div class="col-md-5">
-                      <label for="exampleInputLastName">Sexo</label>
-                         <div class="form-group">                 
-                        <select class="form-control" id="spSexo">
-                          <option>Masculino</option>
-                          <option>Femenino</option>
-                          <option>Otro</option>                     
-                        </select>
-                      </div>
-                    </div>
-    
-                  </div>              
-                </div>
-    
-                <div class="form-group">
-                  <div class="form-row">
-                    <div class="col-md-7">
-                      <label for="exampleInputName">Dirección de Residencia</label>
-                      <input class="form-control" id="tvDir" type="text" aria-describedby="nameHelp" placeholder="Ingrese dirección">
-                    </div>
-                    <div class="col-md-2">
-                      <label for="exampleInputLastName">Teléfono</label>
-                      <input class="form-control" id="tvTelefono" type="text" onkeypress='return event.charCode >= 48 && event.charCode <= 57' aria-describedby="nameHelp" placeholder="Ingrese télefono">
-                    </div>              
-                    <div class="col-md-3">
-                      <label for="exampleInputLastName">Celular</label>
-                      <input class="form-control" id="tvCelular" type="text" onkeypress='return event.charCode >= 48 && event.charCode <= 57'  aria-describedby="nameHelp" size ="10" placeholder="Ingresar número">
-                    </div>
-                  </div>              
-                </div>
-    
-                <div class="form-group">
-                  <div class="form-row" id="someId">    
-                    
-                    <div class="col-md-4">
-                        <label for="exampleInputName">Localidad o Sector</label>
-                        <input class="form-control" id="tvLocalidadSector" type="text" aria-describedby="nameHelp" placeholder="Ingrese barrio o vereda">
-                    </div>
-    
-                    <div class="col-md-8">
-                      <label for="exampleInputLastName">Estrato Socioeconómico</label>
-                      <div class="form-group">                 
-                        <select class="form-control" id="spEstrato">
-                          <option>1</option>
-                          <option>2</option>
-                          <option>3</option>       
-                          <option>4</option> 
-                          <option>5</option> 
-                          <option>6</option>               
-                        </select>
-                      </div>
-                    </div>
-                  </div>              
-                </div>
-             
-    
-    
-                <div class="form-group">
-                  <label for="exampleInputEmail1">Afiliación a Salud</label>
-                  <div class="form-group">                 
-                        <select class="form-control" id="spEPS">
-                          <option>CAFESALUD</option>
-                          <option>COOMEVA</option>
-                          <option>FUNDACIÓN MEDICO PREVENTIVA</option>       
-                          <option>NUEVA EPS</option> 
-                          <option>NUEVA EPS SUBSIDIADA</option> 
-                          <option>SAVIA SALUD</option>
-                          <option>SISBEN</option>    
-                          <option>SURA</option> 
-                          <option>OTRA</option>      
-                          <option>NINGUNA</option>      
-                        </select>
-                      </div>
-                </div>
-                
-                <div class="card-header">DATOS FAMILIARES</div>       
-                  <div class="form-group">
-                    <div class="form-row">
-    
-                      <div class="col-md-7">
-                        <label for="exampleInputName">Nombre del Acudiente</label>
-                        <input class="form-control" id="tvnameA" type="text" aria-describedby="nameHelp" placeholder="Ingrese nombre completo del acudiente">
-                      </div>
-    
-                      <div class="col-md-2">
-                        <label for="exampleInputLastName">Parentesco</label>
-                         <div class="form-group">                 
-                              <select class="form-control" id="spParentesco">
-                                <option></option>
-                                <option>Madre</option>
-                                <option>Padre</option>
-                                <option>Tía/o</option>  
-                                <option>Abuela/o</option>      
-                                <option>Hermana/o</option>     
-                                <option>Prima/o</option> 
-                                <option>Otro</option>
-                                <option>No aplica</option>
-                              </select>
-                           </div>
-                      </div>  
-    
-                      <div class="col-md-3">
-                        <label for="exampleInputLastName">Teléfono Acudiente</label>
-                        <input class="form-control" id="tvTelAcu" onkeypress='return event.charCode >= 48 && event.charCode <= 57' type="text" aria-describedby="nameHelp" placeholder="Ingrese teléfono acudiente">
-                      </div>
-    
-                    </div>              
-                  </div>
-            
-    
-                <div class="card-header">DATOS DE MATRÍCULA</div>       
-                  <div class="form-group">
-                    <div class="form-row">
-    
-                      <div class="col-md-12">
-                        <label for="exampleInputLastName">Escuadron</label>
-                         <div class="form-group">                 
-                          <select class="form-control" id="spInstrumentos">
-                            <option>Protocolo</option>
-                            <option>Colors</option>
-                            <option>Drum major</option>
-                            <option>Bronces</option> 
-                            <option>Maderas</option> 
-                            <option>Platillos</option> 
-                            <option>Liras</option>      
-                            <option>Percusion latina</option> 
-                            <option>Snareline</option>
-                            <option>Bassline</option>      
-                          </select>
-                        </div>
-                      </div>  
-    
-                  </div>              
-                </div>     
-                              
-              </div>      
-    
-              
-    
-                <div id="my-alert-success" class="alert alert-success hidden" role="alert" style="display:none">
-                    <button type="button" class="close" id="btn-success" aria-label="Close">    
-                        <span aria-hidden="true">&times;</span>
-                    </button> 
-                    <strong>Éxito!</strong> Se ha registrado el estudiante.
-                </div>
-                <div id="my-alert-danger" class="alert alert-danger hidden" role="alert" style="display:none">
-                    <button type="button" id="btn-danger" class="close" aria-label="Close">    
-                        <span aria-hidden="true">&times;</span>
-                    </button> 
-                   <p id="txtError"> </p>
-                </div>
-    
-                <div class="text-center col-md-4" id="divBtnReg">
-                  <a class="btn btn-primary btn-block" id="btnAddEst" >Registrar</a>
-                </div>
-    
-              </form>          
-            </div>  
-           </div>
-    </div>
-  
-  <!-- /.content-wrapper-->
-    <footer class="sticky-footer">
-        <div class="container">
-          <div class="text-center">
-            <small>Copyright © 2018</small>
+<body class="fixed-nav sticky-footer bg-dark" id="page-top">
+  <!--Navigation bar-->
+  <div id="nav-placeholder"> </div>
+
+  <!--contenido -->
+  <div class="content-wrapper">
+    <div class="container-fluid">
+      <div class="card-header">FECHAS</div>
+      <div class="form-group">
+        <div class="form-row">
+
+          <div class="col-md-7">
           </div>
+
+          <div class="col-md-2">
+            <label for="exampleInputName">Fecha de Matrícula</label>
+            <!-- Form code begins -->
+            <form method="post">
+              <div class="form-group">
+                <!-- Date input -->
+                <input class="form-control" id="tvDateMatr" name="date" readonly="readonly" placeholder="DD/MM/YYYY" type="text" />
+              </div>
+            </form>
+          </div>
+
+          <div class="col-md-3">
+            <label for="exampleInputName">Fecha de ingreso</label>
+            <!-- Form code begins -->
+            <form method="post">
+              <div class="form-group">
+                <!-- Date input -->
+                <input class="form-control" id="tvDateIngr" name="date" readonly="readonly" placeholder="DD/MM/YYYY" type="text" />
+              </div>
+            </form>
+          </div>
+
         </div>
-    </footer>
+      </div>
 
-    <!--Importante agregarlo para la conexión a firebase-->
-    <script src="https://www.gstatic.com/firebasejs/5.0.2/firebase.js"></script> 
+      <div class="card-header">Registro Estudiante</div>
+      <div class="card-body">
+        <form id="contactForm" method="post">
 
-    <!-- Bootstrap core JavaScript -->
-    <script src="../vendor/jquery/jquery.min.js"></script>
-    <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="../js/util.js"></script>
-    <script type="text/javascript" src="../js/bootstrap-datepicker.js"></script>
-    <script src="../js/newMember.js"></script>
-    <script src="../js/auth.js"></script>
+          <div class="form-group">
+            <div class="form-row">
+
+              <div class="col-md-6">
+                <label for="exampleInputName">Nombres</label>
+                <input class="form-control" id="tvNombres" type="text" aria-describedby="nameHelp" placeholder="Ingrese nombre">
+              </div>
+
+              <div class="col-md-6">
+                <label for="exampleInputLastName">Tipo de Documento</label>
+
+                <div class="form-group">
+                  <select class="form-control" id="spTipoDoc">
+                    <option>Tarjeta de Identidad</option>
+                    <option>Cédula de Ciudadania</option>
+                    <option>Registro Civil</option>
+                  </select>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+
+          <div class="form-group">
+            <div class="form-row">
+              <div class="col-md-6">
+                <label for="exampleInputName">Apellidos</label>
+                <input class="form-control" id="tvApellido" type="text" aria-describedby="nameHelp" placeholder="Ingrese apellidos">
+              </div>
+              <div class="col-md-6">
+                <label for="exampleInputLastName">Número de Documento</label>
+                <input class="form-control" id="tvNumDoc" type="text" aria-describedby="nameHelp" onkeypress='return event.charCode >= 48 && event.charCode <= 57'
+                  placeholder="Ingrese número de documento">
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="form-row">
+              <div class="col-md-5">
+                <label for="exampleInputName">Fecha de Nacimiento</label>
+                <!-- Form code begins -->
+                <form method="post">
+                  <div class="form-group">
+                    <!-- Date input -->
+                    <input class="form-control" id="tvFechaNac" name="date" readonly="readonly" placeholder="DD/MM/YYYY" type="text" />
+                  </div>
+                </form>
+              </div>
+
+              <div class="col-md-2">
+                <label for="exampleInputLastName">RH</label>
+                <div class="form-group">
+                  <select class="form-control" id="spRH">
+                    <option>A+</option>
+                    <option>A-</option>
+                    <option>B+</option>
+                    <option>B-</option>
+                    <option>AB+</option>
+                    <option>AB-</option>
+                    <option>O+</option>
+                    <option>O-</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="col-md-5">
+                <label for="exampleInputLastName">Sexo</label>
+                <div class="form-group">
+                  <select class="form-control" id="spSexo">
+                    <option>Masculino</option>
+                    <option>Femenino</option>
+                    <option>Otro</option>
+                  </select>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="form-row">
+              <div class="col-md-7">
+                <label for="exampleInputName">Dirección de Residencia</label>
+                <input class="form-control" id="tvDir" type="text" aria-describedby="nameHelp" placeholder="Ingrese dirección">
+              </div>
+              <div class="col-md-2">
+                <label for="exampleInputLastName">Teléfono</label>
+                <input class="form-control" id="tvTelefono" type="text" onkeypress='return event.charCode >= 48 && event.charCode <= 57'
+                  aria-describedby="nameHelp" placeholder="Ingrese télefono">
+              </div>
+              <div class="col-md-3">
+                <label for="exampleInputLastName">Celular</label>
+                <input class="form-control" id="tvCelular" type="text" onkeypress='return event.charCode >= 48 && event.charCode <= 57' aria-describedby="nameHelp"
+                  size="10" placeholder="Ingresar número">
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="exampleInputEmail1">Afiliación a Salud</label>
+            <div class="form-group">
+              <select class="form-control" id="spEPS">
+                <option>CAFESALUD</option>
+                <option>COOMEVA</option>
+                <option>FUNDACIÓN MEDICO PREVENTIVA</option>
+                <option>NUEVA EPS</option>
+                <option>NUEVA EPS SUBSIDIADA</option>
+                <option>SAVIA SALUD</option>
+                <option>SISBEN</option>
+                <option>SURA</option>
+                <option>OTRA</option>
+                <option>NINGUNA</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="card-header">DATOS DE MATRÍCULA</div>
+          <div class="form-group">
+            <div class="form-row">
+
+              <div class="col-md-12">
+                <label for="exampleInputLastName">Escuadron</label>
+                <div class="form-group">
+                  <select class="form-control" id="spInstrumentos">
+                    <option>Protocolo</option>
+                    <option>Colors</option>
+                    <option>Drum major</option>
+                    <option>Bronces</option>
+                    <option>Maderas</option>
+                    <option>Platillos</option>
+                    <option>Liras</option>
+                    <option>Percusion latina</option>
+                    <option>Snareline</option>
+                    <option>Bassline</option>
+                  </select>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+      </div>
+
+
+
+      <div id="my-alert-success" class="alert alert-success hidden" role="alert" style="display:none">
+        <button type="button" class="close" id="btn-success" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <strong>Éxito!</strong> Se ha registrado el estudiante.
+      </div>
+      <div id="my-alert-danger" class="alert alert-danger hidden" role="alert" style="display:none">
+        <button type="button" id="btn-danger" class="close" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <p id="txtError"> </p>
+      </div>
+
+      <div class="text-center col-md-4" id="divBtnReg">
+        <a class="btn btn-primary btn-block" id="btnAddEst">Registrar</a>
+      </div>
+
+      </form>
+    </div>
+  </div>
+  </div>
+
+  <!-- /.content-wrapper-->
+  <footer class="sticky-footer">
+    <div class="container">
+      <div class="text-center">
+        <small>Copyright © 2018</small>
+      </div>
+    </div>
+  </footer>
+
+  <!--Importante agregarlo para la conexión a firebase-->
+  <script src="https://www.gstatic.com/firebasejs/5.0.2/firebase.js"></script>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="../vendor/jquery/jquery.min.js"></script>
+  <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="../js/util.js"></script>
+  <script type="text/javascript" src="../js/bootstrap-datepicker.js"></script>
+  <script src="../js/newMember.js"></script>
+  <script src="../js/authDontDuplicate.js"></script>
 </body>
+
 </html>
