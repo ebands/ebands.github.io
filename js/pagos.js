@@ -1,6 +1,7 @@
 var inputPago= $("#namePagos");
 var jumb = $("#jumbotro");
 var date;
+var mapPagos={};
 $(document).ready(function(){
     pop =  $("#pop-up-info");
     date =    $("#date").datepicker()
@@ -47,6 +48,7 @@ function postTipoPago(){
     };
     $.ajax( options );
 }
+
 function getFromServ(){ 
     $.ajax({
       url: "/read_pagos",
@@ -56,7 +58,8 @@ function getFromServ(){
         var button;
         res.forEach(function(element) {
           console.log(element);
-          button = ' <button type="button" class="btn btn-primary btn-lg btn-block">'+element[2] +'</button> ';
+          mapPagos[element[0]] =[element[1], element[2]];
+          button = ' <button type="button" class="btn btn-primary btn-lg btn-block "'+'id="'+element[0] +'">'+element[2] +'</button> ';
           jumb.append(button);            
           
         });      
@@ -67,6 +70,12 @@ function getFromServ(){
   });
   }
   
+  jumb.on('click', '.btn', function () {
+    var array = $(this);
+   // var button = $(this).getAttribute('href');
+    console.log($(this).attr("id"))
+  
+  });
 /**Metodo que vacía una lista de campos**/
 function vaciarCamps(){
     var inputs =[inputPago,date];      

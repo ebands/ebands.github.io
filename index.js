@@ -35,6 +35,10 @@ app.listen(port, function(){
     console.log("app running");
 })
 
+ //////////////////////////////////
+ ///// PETICIONES INVENTARIO
+ //////////////////////////////////
+
 app.get('/read_invent',function (req, res){
     var db = admin.database();
     var ref = db.ref("inventario");
@@ -104,7 +108,7 @@ app.post('/write_invent', function(req, res) {
 
 
  //////////////////////////////////
- ///// peticiones PAGOS
+ ///// PETICIONES PAGOS
  //////////////////////////////////
 
  app.post('/write_pago', function(req, res) {   
