@@ -53,6 +53,26 @@ a {
 
 }
 
+#b-closePago{
+  transition: all 200ms;
+	font-size: 30px; 
+	font-weight: bold; 
+    color: #333; 
+	position:absolute;
+	top:-13;
+  right:10px;
+}
+
+#pop-up-pago{   
+  background-color:#fff;
+  border-radius:15px;
+  display:none; 
+  padding:10px;
+  margin: 0;
+  min-width:400px;
+  min-height: 400px;
+}
+
 #jumbotro{
   width: 100%;
 }
