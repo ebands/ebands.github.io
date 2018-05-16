@@ -31,22 +31,6 @@ var fb = firebase.database().ref();
      });
  });
 
-/**Metodo que agrega un elemento al inventario en la base de datos**/
-function addElement(){
-    var postData = {
-        nameInstrument:nameInstrument.val(),
-        typeInstrument:typeInstrument.val()
-    };  
-    //Obtiene un nuevo key para realizar el Post.
-    var newPostKey = fb.child('inventario').push().key;
-    // Escribe el nuevo post's simultaneamente en el posts list y en el user's post list.
-    var updates = {};
-    updates['/inventario/' + newPostKey] = postData; 
-    
-    vaciarCamps();
-    return fb.update(updates);
-}
-
 /**Metodo que vacía una lista de campos**/
 function vaciarCamps(){
     var inputs =[nameInstrument,typeInstrument];      
@@ -55,12 +39,8 @@ function vaciarCamps(){
     } 
 }
 
-function postItem(){
-      var dat= {
-        test:'hola',
-        cosa:'hola 2'
-      };
-      
+/**Metodo que realiza un post el cual agrega un elemento al inventario en la base de datos**/
+function postItem(){    
       var options = {
         url: "/write_invent",
         dataType: "text",
@@ -68,7 +48,7 @@ function postItem(){
         data: {nameInstrument:nameInstrument.val(),
              typeInstrument:typeInstrument.val() },//test: JSON.stringify( data ) }, // Our valid JSON string
         success: function( data, status, xhr ) {
-           //...
+           vaciarCamps();
         },
         error: function( xhr, status, error ) {
             //...

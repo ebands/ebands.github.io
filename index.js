@@ -188,3 +188,47 @@ app.post('/write_student', function(req, res) {
         })
     );
  });
+
+ //////////////////////////////////
+ ///// peticiones PAGOS
+ //////////////////////////////////
+
+ app.post('/write_pago', function(req, res) {   
+    console.log('req received');
+    console.log(req.body);
+    var refe = db.ref("pagos");
+    var usersRefe = refe;
+
+   
+    var newPostRef = usersRefe.push();
+    var key = newPostRef.key;
+   
+    var nameTipoPago=req.body.nameTipoPago;
+    var fecha = req.body.fecha;
+    
+    console.log('var',nameTipoPago,fecha);
+      
+    res.send(newPostRef.set({   
+        id:key,   
+        nameTipoPago: nameTipoPago,
+        fecha: fecha        
+    }));
+ });
+
+ app.get('/read_pagos',function (req, res){  
+    var ref = db.ref("pagos");
+    var value ;
+    var dataSet;
+    var mapDatos=[];
+    ref.once("value", function(snapshot) {
+        value = snapshot.val();
+        snapshot.forEach(function (childSnapshot) {
+            var val = childSnapshot.val();
+            dataSet = [val.id, val.fecha, val.nameTipoPago];              
+            mapDatos.push(dataSet);
+            console.log(dataSet);
+        });
+        res.send(mapDatos);          
+    });   
+    
+  });
