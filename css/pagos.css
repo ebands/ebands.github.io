@@ -51,3 +51,11 @@ a {
     right:10px;
 
 }
+
+#jumbotro{
+  width: 100%;
+}
+
+#jumbotro btn{
+  display: inline-block;
+}

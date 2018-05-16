@@ -129,8 +129,7 @@ app.post('/write_invent', function(req, res) {
     }));
  });
 
- app.get('/read_pagos',function (req, res){
-    var db = admin.database();
+ app.get('/read_pagos',function (req, res){  
     var ref = db.ref("pagos");
     var value ;
     var dataSet;
@@ -139,7 +138,7 @@ app.post('/write_invent', function(req, res) {
         value = snapshot.val();
         snapshot.forEach(function (childSnapshot) {
             var val = childSnapshot.val();
-            dataSet = [val.fecha,val.id, val.nameTipoPago];              
+            dataSet = [val.id, val.fecha, val.nameTipoPago];              
             mapDatos.push(dataSet);
             console.log(dataSet);
         });

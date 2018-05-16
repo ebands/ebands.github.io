@@ -1,5 +1,6 @@
 var inputPago= $("#namePagos");
-
+var jumb = $("#jumbotro");
+var date;
 $(document).ready(function(){
     pop =  $("#pop-up-info");
     date =    $("#date").datepicker()
@@ -21,7 +22,7 @@ $(document).ready(function(){
         postTipoPago();
     });
 
-
+    getFromServ();
   
 
 });
@@ -36,7 +37,9 @@ function postTipoPago(){
       data: {nameTipoPago:inputPago.val(),
           fecha:date.val() },//test: JSON.stringify( data ) }, // Our valid JSON string
       success: function( data, status, xhr ) {
-         //...
+        jumb.empty();
+        getFromServ();
+        vaciarCamps();
       },
       error: function( xhr, status, error ) {
           //...
@@ -44,46 +47,19 @@ function postTipoPago(){
     };
     $.ajax( options );
 }
-
-
-function getData() { 
-    //userId = firebase.auth().currentUser.uid
-      return redt.once('value').then(function(snapshot) {  		
-      snapshot.forEach(function(child){       
-        var key = child.key;
-        var value = child.val();
-        var nameTipoPago = value.nameTipoPago;
-        var fecha = value.fecha;
-        var button = document.createElement('input');
-        button.type = 'button';
-        button.className = 'btn btn-primary btn-lg btn block'
-       
-  
-         
-      });
-    });
-  }
-
-
-function getFromServ(){
- 
+function getFromServ(){ 
     $.ajax({
       url: "/read_pagos",
       type: 'GET',
       //dataType: 'json', // added data type
       success: function(res) {
-        var button = "<input type='button' class='btn btn-primary btn-lg btn-block'/>"
+        var button;
         res.forEach(function(element) {
           console.log(element);
-          var button = document.createElement('input');
-          button.type = 'button';
-          button.className = 'btn btn-primary btn-lg btn block'
-          button.value = element[2]
-
+          button = ' <button type="button" class="btn btn-primary btn-lg btn-block">'+element[2] +'</button> ';
+          jumb.append(button);            
           
-          
-        });
-      
+        });      
     
       },error: function (res, status, error) {
         alert("si, error", error);
@@ -91,16 +67,13 @@ function getFromServ(){
   });
   }
   
-  function getF(){
-    $.getJSON( '/read', function( data ) {
-  
-      // For each item in our JSON, add a table row and cells to the content string
-      $.each(data, function(){
-        console.log(data)
-      });
-  
-    });
-  }
+/**Metodo que vacía una lista de campos**/
+function vaciarCamps(){
+    var inputs =[inputPago,date];      
+    for (i = 0; i < inputs.length; i++) { 
+        inputs[i].val("");
+    } 
+}
 
  
 

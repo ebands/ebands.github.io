@@ -31,30 +31,7 @@ var userId ;
 /////////////////////////
 
 /**Metodo que obtiene los datos de la BD y los carga en un dataTable**/
-function getData() { 
-  //userId = firebase.auth().currentUser.uid
-    return redt.once('value').then(function(snapshot) {  		
-    snapshot.forEach(function(child){       
-      var key = child.key;
-      var value = child.val();
-      var nameInstrument = value.nameInstrument;
-      var typeInstrument = value.typeInstrument;
-      var btnEdicion ="<input type='image' src='../img/edit-button.png'  class='edicion' />";          
-      var btnBorrar = "<input type='image' src='../img/waste-bin1.png'  class='borrar' />";
-
-      tableInvent.row.add([
-        key,
-        nameInstrument,
-        typeInstrument,
-        btnEdicion,
-        btnBorrar          
-      ]).draw();  
-    });
-  });
-}
-
-function getFromServ(){
- 
+function getFromServ(){ 
   $.ajax({
     url: "/read_invent",
     type: 'GET',
@@ -71,24 +48,11 @@ function getFromServ(){
           btnEdicion,
           btnBorrar
         ]).draw();  
-      });
-    
-  
+      });    
     },error: function (res, status, error) {
       alert("si, error", error);
     }
 });
-}
-
-function getF(){
-  $.getJSON( '/read', function( data ) {
-
-    // For each item in our JSON, add a table row and cells to the content string
-    $.each(data, function(){
-      console.log(data)
-    });
-
-  });
 }
 
 /**Onclick de los botones edición del DataTable, carga un popUp con la información de la fila**/
@@ -111,45 +75,21 @@ tableInvent.on('click', '.borrar', function () {
   var RowIndex = $(this).closest('tr');
   var data = tableInvent.row(RowIndex).data(); 
   deleteBk(data[0]);
-  //var desertRef = database.ref('inventario/'+data[0]);
-  // Delete the file
-  /*desertRef.remove().then(function() {
-    rechargeTable();
-  }).catch(function(error) {
-    // Uh-oh, an error occurred!
-  });*/
-
 });
 
 /**Onclick del boton Actualizar del popUP, actualiza la fila que se haya seleccionado, con la información que se haya cambiado**/
 btnUpdateInt.click( function() {
   updateBk(key);
-  //updateEst(key);
 });
 
 /**Actualiza un instrumento con el key de este pasado por parametro**/
-function updateEst(key) {
-  var fechaMatricula =$("#tvDateMatr");
-  var fechaIngreso =  $("#tvDateIngr");
-
-  var postData = {
-    id:key,
-    nameInstrument:nameInstrument.val(),
-    typeInstrument:typeInstrument.val()
-  };  
-  
-  var updates = {};
-  updates['/inventario/' + key] = postData;
-  return fb.update(updates);
-}
-
 function updateBk(key){
   $.ajax({
     url: '/put_invent',
     type: 'PUT',    
     data: {id:key,
           nameInstrument:nameInstrument.val(),
-          typeInstrument:typeInstrument.val() },//test: JSON.stringify( data ) }, // Our valid JSON string
+          typeInstrument:typeInstrument.val() },
     success: function( data, status, xhr ) {
         //...
     },
@@ -160,14 +100,13 @@ function updateBk(key){
   });
 }
 
-
 function deleteBk(key){
   $.ajax({
     url: '/delete_invent',
     type: 'DELETE',    
-    data: {id:key},//test: JSON.stringify( data ) }, // Our valid JSON string
+    data: {id:key},
     success: function( data, status, xhr ) {
-        //...
+      rechargeTable();
     },
     error: function( xhr, status, error ) {
         //...
