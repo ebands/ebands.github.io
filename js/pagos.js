@@ -1,6 +1,7 @@
 var inputPago= $("#namePagos");
 var jumb = $("#jumbotro");
 var date;
+var tblPagoEst = $("#tblPagoEst")
 $(document).ready(function(){
     pop =  $("#pop-up-info");
     date =    $("#date").datepicker()
@@ -35,7 +36,7 @@ function postTipoPago(){
       dataType: "text",
       type: "POST",
       data: {nameTipoPago:inputPago.val(),
-          fecha:date.val() },//test: JSON.stringify( data ) }, // Our valid JSON string
+          fecha:date.val(), estado:"estado" },//test: JSON.stringify( data ) }, // Our valid JSON string
       success: function( data, status, xhr ) {
         jumb.empty();
         getFromServ();
@@ -73,6 +74,32 @@ function vaciarCamps(){
     for (i = 0; i < inputs.length; i++) { 
         inputs[i].val("");
     } 
+}
+
+
+function getStudents(){
+    $.ajax({
+        url: "/read_pagosEst",
+        type: 'GET',
+        //dataType: 'json', // added data type
+        success: function(res) {
+          var btnCheck ="<input type='image' src='../img/checkPago.png'  class='edicion' />";          
+         
+          res.forEach(function(element) {
+            console.log(element);
+            tblPagoEst.row.add([
+              element[0],
+              element[1],
+              element[2],
+              element[3],
+              btnCheck
+            
+            ]).draw();  
+          });    
+        },error: function (res, status, error) {
+          alert("si, error", error);
+        }
+    });
 }
 
  

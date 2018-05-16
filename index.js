@@ -119,13 +119,16 @@ app.post('/write_invent', function(req, res) {
    
     var nameTipoPago=req.body.nameTipoPago;
     var fecha = req.body.fecha;
+    var estado = req.body.estado;
     
     console.log('var',nameTipoPago,fecha);
       
     res.send(newPostRef.set({   
         id:key,   
         nameTipoPago: nameTipoPago,
-        fecha: fecha        
+        fecha: fecha,
+        estado: estado
+
     }));
  });
 
@@ -143,6 +146,25 @@ app.post('/write_invent', function(req, res) {
             console.log(dataSet);
         });
         res.send(mapDatos);          
+    });   
+    
+  })
+
+  app.get('/read_pagosEst',function (req, res){
+    var db = admin.database();
+    var ref = db.ref("estudiantes");
+    var value ;
+    var dataSet;
+    var listaEst=[];
+    ref.once("value", function(snapshot) {
+        value = snapshot.val();
+        snapshot.forEach(function (childSnapshot) {
+            var val = childSnapshot.val();
+            dataSet = [val.id,val.nombre, val.apellido,val.numDoc];              
+            listaEst.push(dataSet);
+            console.log(dataSet);
+        });
+        res.send(listaEst);          
     });   
     
   })
