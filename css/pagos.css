@@ -32,10 +32,11 @@ a {
 }
 
 #pop-up-info { 
+  
   background-color:#fff;
   border-radius:15px;
   display:none; 
-  padding:0;
+  padding:10px;
   margin: 0;
   min-width:400px;
   min-height: 400px;

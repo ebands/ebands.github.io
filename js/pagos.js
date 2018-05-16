@@ -5,10 +5,10 @@ $(document).ready(function(){
     pop =  $("#pop-up-info");
     date =    $("#date").datepicker()
     $("#btnAdd").click(function(){
-        pop.bPopup({
-            zIndex: 4,
-          modalClose: false,
-          position: [300, 150]
+        pop.bPopup({           
+             zIndex: 4,
+            modalClose: false,
+          position: [531, 150]
         });
     });
     $(".b-close").click(function(){
