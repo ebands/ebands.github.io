@@ -58,9 +58,11 @@ a {
 	font-size: 30px; 
 	font-weight: bold; 
     color: #333; 
-	position:absolute;
+  position:absolute;
+  cursor:pointer;
 	top:-13;
   right:10px;
+  z-index: 50;
 }
 
 #pop-up-pago{   
