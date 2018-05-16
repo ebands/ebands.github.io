@@ -13,7 +13,7 @@ var config =  {
 //VARIABLES
 /////////////////////////
 
-var btnRegistrar = $("#divBtnReg");
+var btnRegistrar = $("#btnAddInvt");
 var defaultApp = firebase.initializeApp(config);
 var nameInstrument =$("#tvName"); 
 var typeInstrument = $("#spTipOb");    
