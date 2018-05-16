@@ -52,7 +52,7 @@ app.get('/read_invent',function (req, res){
         value = snapshot.val();
         snapshot.forEach(function (childSnapshot) {
             var val = childSnapshot.val();
-            dataSet = [val.id,val.nombreInstrument, val.typeInstrument];              
+            dataSet = [val.id,val.nameInstrument, val.typeInstrument];              
             mapDatos.push(dataSet);
             console.log(dataSet);
         });
@@ -69,14 +69,14 @@ app.post('/write_invent', function(req, res) {
     var newPostRef = usersRef.push();
     var key = newPostRef.key;
    
-    var nombreInstrument=req.body.nombreInstrument;
+    var nameInstrument=req.body.nameInstrument;
     var typeInstrument = req.body.typeInstrument;
     
-    console.log('var',nombreInstrument,typeInstrument);
+    console.log('var',nameInstrument,typeInstrument);
       
     res.send(newPostRef.set({   
         id:key,   
-        nombreInstrument: nombreInstrument,
+        nameInstrument: nameInstrument,
         typeInstrument: typeInstrument        
     }));
  });
@@ -84,12 +84,12 @@ app.post('/write_invent', function(req, res) {
  app.put('/put_invent', function (req, res) {
     console.log(req.body);  
     var key = req.body.id;
-    var nombreInstrument=req.body.nombreInstrument;
+    var nameInstrument=req.body.nameInstrument;
     var typeInstrument = req.body.typeInstrument;
     var hopperRef = usersRef.child(key);
         res.send(         
             hopperRef.update({
-                "nombreInstrument":nombreInstrument,
+                "nameInstrument":nameInstrument,
                 "typeInstrument":typeInstrument
             })
         );
